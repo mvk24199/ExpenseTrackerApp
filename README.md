@@ -20,13 +20,13 @@ The Expense Tracker App is a comprehensive mobile application that empowers user
    - Includes a link to the sign-up screen for new users.
    - Provides basic validation to ensure credentials are entered correctly.
   
-![Login Screen](images/ss2.PNG)
+![Login Screen](images/ss2.PNG){width=150px height=150px}
 
 2. **Sign-Up Screen**:
    - New users can create an account by providing an email and password.
    - Includes basic input validation to ensure a valid email format and secure password.
 
-![Signup Screen](images/ss1.PNG)
+![Signup Screen](images/ss1.PNG){width=150px height=150px}
 
 3. **Home Screen**:
    - Displays a list of all recorded expenses.
@@ -34,7 +34,7 @@ The Expense Tracker App is a comprehensive mobile application that empowers user
    - The list shows key information for each expense, including description, category, amount, and date.
    - An additional button allows users to navigate to the pie chart to view expense distribution.
 
-![Login Screen](images/ss3.PNG)
+![Login Screen](images/ss3.PNG){width=150px height=150px}
 
 4. **Add Expense Screen**:
    - A form-based interface to add or edit expense details.
@@ -42,7 +42,7 @@ The Expense Tracker App is a comprehensive mobile application that empowers user
    - Validation ensures all necessary fields are filled in before saving.
    - When editing, users can see the current values and make changes.
 
-![Add Expense Screen](images/ss5.PNG)
+![Add Expense Screen](images/ss5.PNG){width=150px height=150px}
 
 5. **Pie Chart Screen**:
    - Visualizes expense distribution by category.
@@ -50,7 +50,7 @@ The Expense Tracker App is a comprehensive mobile application that empowers user
    - The chart shows the proportion of expenses in each category, allowing users to see where their money is going.
    - Useful for identifying spending patterns and making budgeting decisions.
 
-![PieChart Screen](images/ss4.PNG)
+![PieChart Screen](images/ss4.PNG){width=150px height=150px}
 
 ### Technical Details
 
