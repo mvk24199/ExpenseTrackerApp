@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Button, Platform, StyleSheet } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Platform, StyleSheet } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { Picker } from '@react-native-picker/picker';
 
 const AddExpenseScreen = ({ navigation, route }) => {
-  const [description, setDescription] = useState('');
-  const [amount, setAmount] = useState('');
-  const [date, setDate] = useState(new Date());
+  const expenseToEdit = route.params?.expense || {};
+  const [description, setDescription] = useState(expenseToEdit.description || '');
+  const [amount, setAmount] = useState(expenseToEdit.amount ? expenseToEdit.amount.toString() : '');
+  const [date, setDate] = useState(expenseToEdit.date || new Date());
+  const [category, setCategory] = useState(expenseToEdit.category || 'Groceries');
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   const handleSave = () => {
     const newExpense = {
+      id: expenseToEdit.id,
       description,
       amount: parseFloat(amount),
       date,
+      category,
     };
 
     if (route.params?.addExpense) {
       route.params.addExpense(newExpense);
+    } else if (route.params?.updateExpense) {
+      route.params.updateExpense(newExpense);
     }
 
     navigation.goBack();
@@ -47,6 +54,19 @@ const AddExpenseScreen = ({ navigation, route }) => {
         value={amount}
         keyboardType="numeric"
       />
+      
+      <Text style={styles.label}>Category:</Text>
+      <Picker
+        selectedValue={category}
+        style={styles.picker}
+        onValueChange={(itemValue) => setCategory(itemValue)}
+      >
+        <Picker.Item label="Groceries" value="Groceries" />
+        <Picker.Item label="Transport" value="Transport" />
+        <Picker.Item label="Utilities" value="Utilities" />
+        <Picker.Item label="Entertainment" value="Entertainment" />
+        <Picker.Item label="Other" value="Other" />
+      </Picker>
 
       <Text style={styles.label}>Date:</Text>
       <TouchableOpacity onPress={showDatepicker}>
@@ -88,6 +108,12 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 10,
     marginBottom: 20,
+  },
+  picker: {
+    height: 50,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#ccc',
   },
   dateText: {
     color: '#000',

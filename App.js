@@ -5,6 +5,7 @@ import AddExpenseScreen from './components/AddExpenseScreen';
 import HomeScreen from './components/HomeScreen';
 import LoginScreen from './components/LoginScreen';
 import SignUpScreen from './components/SignUpScreen';
+import PieChartScreen from './components/PieChartScreen';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ const App = () => {
           name="AddExpense"
           component={AddExpenseScreen}
           options={{ title: 'Add Expense' }}
+        />
+        <Stack.Screen
+          name="PieChart"
+          component={PieChartScreen}
+          options={{ title: 'Expense Distribution' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
